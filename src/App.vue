@@ -33,7 +33,7 @@
 
       </v-list>
     </v-navigation-drawer>
-    <v-container class="mx-16" fluid app>
+    <v-container class="pl-16" fluid app>
       <router-view/>
     </v-container>
 
