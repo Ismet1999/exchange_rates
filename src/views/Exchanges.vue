@@ -77,8 +77,6 @@ export default {
   computed: {
     ...mapGetters([
       'GET_LIST_CURRENCIES',]),
-
-
     getListCurrency() {
       let _arr = [{
         "ID": "1",
@@ -90,8 +88,6 @@ export default {
         "Previous": 1
       }]
       _arr.push(...this.GET_LIST_CURRENCIES)
-
-
       return _arr
     }
   },
