@@ -96,12 +96,14 @@ export default {
     }
   },
   mounted() {
-    this.FETCH_LIST_CURRENCIES()
+    if (!this.GET_LIST_CURRENCIES.length) {
+      this.FETCH_LIST_CURRENCIES()
+    }
   },
   methods: {
     ...mapActions(['FETCH_LIST_CURRENCIES']),
-    difference(cur){
-      return  this.exchange(cur , 'Value') > this.exchange(cur , 'Previous')
+    difference(cur) {
+      return this.exchange(cur, 'Value') > this.exchange(cur, 'Previous')
     },
     exchange(val, key) {
       return (val[key] / this.current_currency[key]).toFixed(4)
