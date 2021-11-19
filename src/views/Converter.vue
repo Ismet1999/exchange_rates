@@ -84,12 +84,12 @@ export default {
   computed: {
     ...mapGetters(['GET_LIST_CURRENCIES',]),
     getListCurrency() {
-      let _arr = [rub]
-      _arr.push(...this.GET_LIST_CURRENCIES)
-      return _arr
+      let arr = [rub]
+      arr.push(...this.GET_LIST_CURRENCIES)
+      return arr
     },
     getCoefficient() {
-      return this.left_currency.Value / this.right_currency.Value
+      return this.right_currency.Value / this.left_currency.Value
     }
   },
 
@@ -104,16 +104,13 @@ export default {
     convert() {
       let val = (this.left_value || 0) * this.getCoefficient
       this.right_value = val.toFixed(2)/1
-    }
-    ,
+    },
     toggleCurrency() {
-      let _left = this.left_currency
-      let _right = this.right_currency
-      this.left_currency = _right
-      this.right_currency = _left
+      let left = this.left_currency
+      let right = this.right_currency
+      this.left_currency = right
+      this.right_currency = left
       this.convert()
-
-
     }
   }
 }
